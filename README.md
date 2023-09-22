@@ -35,5 +35,22 @@ This will give us more flexibility in the future if we need to make any changes
 
 Bash script is located in ./bin/install_terraform_cli.bash
 
+## Working with ENV Vars 
+
+We can list variables using `env` command
+
+We can filter specific env vars using `echo $PROJECT_ROOT | grep` command
+
+### Setting and unsetting variables
+
+We can set variables using 
+```
+set VAR123="hello"
+```
+
+We can unset variables using
+```
+unset VAR123
+```
 
 
