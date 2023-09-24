@@ -53,4 +53,25 @@ We can unset variables using
 unset VAR123
 ```
 
+### Printing Vars 
+
+We can print an env var using echo eg. `echo $HELLO`
+
+### Scoping of Env Vars
+
+When you open up a new bash terminals in VScode, it will not be aware of env vars that have set in another window
+
+If you want env vars to persist across all future bash terminals,  you need to set env vars in the bash profile, example: `.bash_profile`
+
+#### Persisting Env Vars in Gitpod
+
+We can persist env vars into Gitpod by storing them in Gitpod Secrets Storage
+
+```
+gp env Hello='world'
+```
+
+All future workspaces launched will set the env vars for all bash terminals opened in those workspaces
+
+We can also set them in .gitpod.yml
 
