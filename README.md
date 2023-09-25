@@ -140,4 +140,64 @@ rm -rf "/workspace/aws"
 ```
 
 
+## Terraform Basics
+
+### Terraform Registry
+
+Terraform registry website
+
+[https://registry.terraform.io/](https://registry.terraform.io/)
+
+A very useful resource for terraform
+
+Difference between Providers and Modules:
+
+- Provider: Connects with an API, such as API for AWS, Kubernets, Oracle, etc. Mapping of cloud API to terraform
+- Module: Functions/Templates to provide functionality. Make large amounts of code portable
+
+### Terraform Console 
+
+We can see terraform options by simply typing `terraform`
+
+### Terraform init
+
+At the start of a new terraform project we will run `terraform init` This will download the providers locally for later user
+
+### Terraform plan
+
+`terraform plan`
+This will generate out a changeset, about the state of our infrastructure and what will be changed.
+
+We can output the changeset ie. "plan" to be passed to an apply, but it can be ignored
+
+### Terraform Apply 
+
+`terraform apply`
+This will run a plan and pass the changeset to be executed by terraform. Apply should promot yes or no
+
+If we want to automatically approve an apply we can use:
+`terraform apply --auto-approve`
+
+### Terraform Lock Files
+
+`.terraform.local.hcl` contains the locked versioning of the providers or modules that should be used with the project.
+
+This file should be committed to Github.
+
+### Terraform state files
+
+`.terraform.tfstate` contains information about your infrastructure. 
+It should not be committed to Github.
+
+`.terraform.tfstate.backup` is the previos terraform state file state
+
+### Terraform directory 
+
+`.terraform` directory contains the terraform providers
+
+
+
+
+
+
 
