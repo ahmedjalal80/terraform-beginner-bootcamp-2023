@@ -75,3 +75,69 @@ All future workspaces launched will set the env vars for all bash terminals open
 
 We can also set them in .gitpod.yml
 
+## AWS CLI Installation ##
+
+AWS CLI is installed for the project via the bash script [`./bin/install_aws_cli.bash`](./bin/install_aws_cli.bash)
+
+[Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+### Verifying AWS Credentials 
+
+Check what user/credentials you are logged in as by running the following command:
+
+Before AWS cli credentials are set
+
+```
+gitpod /workspace/terraform-beginner-bootcamp-2023 (7-refactor-aws-cli-script) $ aws sts get-caller-identity
+
+Unable to locate credentials. You can configure credentials by running "aws configure".
+gitpod /workspace/terraform-beginner-bootcamp-2023 (7-refactor-aws-cli-script) $ 
+``````
+
+Credentials look like this:
+
+```
+AWS_ACCESS_KEY_ID=''
+AWS_SECRET_ACCESS_KEY=''
+AWS_DEFAULT_REGION=us-east-1
+```
+
+You can set credentials in Gitpod using the following command in a bash window
+```
+gp env AWS_ACCESS_KEY_ID=''
+gp env AWS_SECRET_ACCESS_KEY=''
+gp env AWS_DEFAULT_REGION=us-east-1
+```
+
+After setting credentials, we can verify using AWS sts command
+
+```json
+gitpod /workspace/terraform-beginner-bootcamp-2023 (7-refactor-aws-cli-script) $ aws sts get-caller-identity
+{
+    "UserId": "AIDA4J2P6ZGA2LDQHOKN7",
+    "Account": "123456789",
+    "Arn": "arn:aws:iam::123456790:user/tf-bootcamp-1"
+}
+```
+
+### Fixing AWS Cli Install script permissions ###
+
+To run the file, the file must have executable permissions for user
+```
+gitpod /workspace/terraform-beginner-bootcamp-2023/bin (7-refactor-aws-cli-script) $ chmod u+x ./install_aws_cli.bash 
+gitpod /workspace/terraform-beginner-bootcamp-2023/bin (7-refactor-aws-cli-script) $ ls -ltr ./install_aws_cli.bash 
+-rwxr--r-- 1 gitpod gitpod 197 Sep 25 18:13 ./install_aws_cli.bash
+gitpod /workspace/terraform-beginner-bootcamp-2023/bin (7-refactor-aws-cli-script) $ 
+```
+### Fixing the AWS script ###
+
+When the script it run without changes, you are prompted to replace AWS folder contents. We can fix that by modifying the script and adding these lines
+
+```bash
+FILENAME='awscliv2.zip'
+rm -f "/workspace/$FILENAME"
+rm -rf "/workspace/aws"
+```
+
+
+
