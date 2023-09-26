@@ -178,6 +178,12 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 If we want to automatically approve an apply we can use:
 `terraform apply --auto-approve`
 
+### Terraform Destory 
+
+```terraform destroy```
+
+Will tear down the infrastructure that was created by the terraform file
+
 ### Terraform Lock Files
 
 `.terraform.local.hcl` contains the locked versioning of the providers or modules that should be used with the project.
