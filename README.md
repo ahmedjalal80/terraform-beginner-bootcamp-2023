@@ -201,7 +201,22 @@ It should not be committed to Github.
 
 `.terraform` directory contains the terraform providers
 
+## Issues with Terraform Cloud Login and Gitpod Workspace
 
+When doing a `terraform login` it takes you to a wiswig view which has unclear instructions.
+
+The workaround is to generate a token in terraform cloud, and paste it in the following file
+`vi /home/gitpod/.terraform.d/credentials.tfrc.json`
+
+```
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "wsfqyYfgm56Uqg.atlasv1.VA6yrfMbrWYim3wU8vxrkhDXW9AUza1t7kqLthV5Sf5hLg40h3zpXZtL380wyiHRF8g"
+    }
+  }
+}
+```
 
 
 
