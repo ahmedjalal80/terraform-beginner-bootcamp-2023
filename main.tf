@@ -11,7 +11,6 @@ terraform {
   }
   cloud {
     organization = "AHMEDCORP"
-
     workspaces {
       name = "terra-house-1"
     }
