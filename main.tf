@@ -9,6 +9,13 @@ terraform {
       version = "5.16.2"
     }
   }
+  cloud {
+    organization = "AHMEDCORP"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
 }
 
 provider "random" {
@@ -19,8 +26,8 @@ provider "aws" {
 }
 
 resource "random_string" "bucket_name" {
-  lower = true
-  upper = false
+  lower   = true
+  upper   = false
   length  = 32
   special = false
 }
